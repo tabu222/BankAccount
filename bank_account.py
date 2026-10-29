@@ -41,7 +41,7 @@ class BankAccount:
         self._check_amount(amount)
         if amount > MAX_WITHDRAW:
             raise ValueError("Cannot withdraw more than 5,000,000 at once")
-        if amount > self.balance:
+        if amount >= self.balance:
             raise ValueError("Insufficient balance")
         self.balance -= amount
         self.history.append(("withdraw", amount))
